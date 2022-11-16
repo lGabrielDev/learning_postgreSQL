@@ -1,0 +1,149 @@
+<!--
+Passo a passo:
+
+1-Instalar o postgreSQL
+    Assim que instalar o programa, é criado um usuario chamado "postgre". É com esse usuário que vamos conseguir acessar o terminal do postgre;
+
+
+2- Criar uma senha para o usuario criado:
+        sudo passwd postgre;
+
+3- Agora, vamos criar um usuario no postgre;
+        CREATE USER biel WITH PASSWORD '123';
+
+
+4- Vamos baixar a interface gráfica pgAdmin4;
+
+
+5- Vamos criar nosso servidor local;
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Instalação
+
+1- Baixe o postgreSQL
+Basta seguir o passo a passo no próprio site do PostgreSQL.
+    https://www.postgresql.org/download/linux/ubuntu/
+
+Assim que o postgreSQL é instalado, é criado um usuario linux chamado "postgres".
+
+Dê um getent passwd e veja se foi criado esse usuario:
+    getent passwd;
+
+É com esse usuario que voce vai conseguir acessar terminal do postgre;
+
+
+2- Troque de usuario para o usuario "postgres";
+    sudo su - postgres;
+
+
+Ou eu poderia acessar primeiro o usuario "root" e depois logar no usuario "postgres"
+        sudo su root;
+        su - postgres;
+
+su -> switch user;
+
+
+
+3- Crie uma nova senha para o usuario linux "postgres"
+    sudo passwd postgres;
+
+
+
+4- Abra o terminal do postgreSQL
+        psql;
+
+
+Beleza. Entramos no terminal do postgreSQL.
+
+
+Verifique a conexão:
+    \conninfo
+
+
+Show. Tudo funcionando.
+
+
+
+
+
+Agora, vamos criar um usuario dentro do postgreSQL;
+Esse é o usuario para acessar o servidor sgbd;
+
+4- Troque para o usuario 'postgres'
+    sudo su - postgres;
+
+5- Acesse o terminal postgresSQL:
+    psql;
+
+
+6- Crie um usuario no postgresSQL:
+    CREATE nome_do_usuario WITH PASSWDORD '123';
+
+Pronto.
+
+Agora temos um usuario para logar no programa.
+
+
+
+Perceba que mesmo com nosso usuario postgres tendo senha, sempre que voce da o command 'psql' para entrar no software, não é pedido senha e ele entra direto.
+
+Para deixar mais seguro, vamos pedir a senha do usuario:
+
+
+7- Acesse esse caminho:
+    /etc/postgresql/15/main
+
+8- Altere o arquivo 'pg_hba.conf';
+    remova 'peer' e coloque 'md5';
+
+
+9- Reestart o sistema:
+        sudo systemctl restart postgresql;
+
+
+
+Sempre que voce quiser altera a senha do usuario root 'postgres', faça:
+
+    ALTER USER postgres WITH PASSWORD '123456';
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Entendendo o command "psql"
+
+syntax:
+    psql -U usuario banco_de_dados;
+
+Sempre que voce dá o command 'psql', voce está dizendo:
+    "psql, abra com o usuario tal no banco tal"
+
+
+    Igual no LOL/valorant:
+    "valorant, abra com o usuario tal"
+
+
+
+Sempre que você entra no terminal "psql", o nome que aparece na linha de command é o NOME DO BANCO DE DADOS QUE VOCE ESTÁ ACESSANDO  e nao do usuario:
+
+Quando voce dá o command "psql" voce está acessando um banco de dados;
+
+
+Sempre que voce for tentar acessar um banco de dados com outro usuario:
+    psql -U biel banco_tal;
+
+Você precisa antes alterar novamente aquele documento "pg_hba.conf", e adicionar uma linha em baixo do usuario "postgres";
+    /etc/postgresql/15/main/pg_hba.conf;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Baixe o pgAdmin:
+
+Vamos baixar a interface gráfica para manipular nossos bancos de dados:
+Vai ser nosso Workbench;
+
+1-
+Basta seguir o passo a passo do site:
+    https://www.pgadmin.org/download/pgadmin-4-apt/
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-->
