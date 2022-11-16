@@ -1,0 +1,73 @@
+<!--
+
+Commands mais usados:
+
+\l   -> lista todas as databases;
+\du  -> lista os usuarios do servidor;
+\c   -> switch to another database;
+\dt  -> lista as database tables;
+\d   -> describes a table;
+\q   -> sai do terminal psql;
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Acessando um banco de dados
+
+psql -> Commando para acessar banco de dados
+
+Esse é um dos principais commands. Com ele, é possível passar algumas flags/parâmetros.
+
+
+As principais são:
+
+
+-h  -> hostname (pode ser local 'localhost' ou um hostname de outro servidor)
+-p  -> port  (5432 é a porta padrão)
+-d  -> nome da database que vamos conectar
+-U  -> User que vamos conectar
+-W  -> passWord do usuario que vamos conectar
+-w  -> não precisa de password  
+
+
+1- Acesse o terminal psql e crie uma database (banco de dados):
+        sudo su - postgres;    -> trocando para o usuario 'postgres' no linux
+        psql                   -> acessando o terminal do postgres
+        
+        \l                     -> listando as databases;
+
+        CREATE DATABASE banco_teste;
+        \l
+        
+
+2- Saia do terminal do postgres;
+    \q
+
+
+3- Entre novamente no terminal psql, mas especifique tudo. Entre no banco de dados criado:
+    psql -h localhost -p 5432 -U postgres -d banco_estudo;
+
+    \conninfo
+
+
+Não precisa espeficiar a porta. Por padrao, já vem 5432. Mas se quiser, escreve.
+
+
+
+
+4- Troque para outro banco de dados:
+    \c banco_tal;
+
+Quando voce já está no terminal psql, voce pode alterar a conexao para outro banco de dados usando o comando:
+    \c
+    \connect
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-->
