@@ -12,6 +12,7 @@
 * :thumbsup:
 * :ok_hand:
 * :sunglasses:
+* :sweat_smile:
 
 
 <br>
